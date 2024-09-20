@@ -1,0 +1,55 @@
+.product {
+  display: block;
+  text-align: left;
+  margin: 20px 0;
+}
+
+.product__image {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Flexbox layout when the `flex` prop is passed */
+.flexLayout {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; /* space between image and description */
+}
+
+.product__details {
+  max-width: 500px; /* Prevents the description from being too wide */
+}
+
+.product__title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.product__rating {
+  margin-bottom: 10px;
+}
+
+.product__description {
+  margin-bottom: 10px;
+}
+
+.product__rating {
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  font-size: 1.2rem; /* Adjust size as needed */
+  color: gold; /* Gold-colored stars */
+  margin-right: 2px; /* Spacing between stars */
+}
+
+.product__rating span:last-child {
+  margin-left: 8px; /* Add some space before the review count */
+  font-size: 0.9rem;
+  color: #888; /* Lighter color for the review count */
+}
+.button:hover svg {
+  background-color: var(--primary-color);
+}
