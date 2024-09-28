@@ -1,0 +1,21 @@
+.orders__one {
+  background-color: #efeeee;
+  padding: 30px;
+}
+.orders__two {
+  background-color: #fff;
+  padding: 20px;
+}
+.orders__two h2 {
+  border-bottom: 2px solid var(--primary-shade);
+  padding: 20px;
+}
+.orders__three p {
+  padding: 12px;
+}
+.orders__three img {
+  width: 50% !important;
+}
+.orders__three div {
+  height: auto !important;
+}

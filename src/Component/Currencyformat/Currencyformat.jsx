@@ -1,4 +1,5 @@
 import React from "react";
+import numeral from "numeral";
 
 function Currencyformat({ amount }) {
   // Changed from 'price' to 'amount'

@@ -5,9 +5,10 @@ import { TiShoppingCart } from "react-icons/ti";
 import classes from "./Header.module.css";
 import LowerHeader from "./LowerHeader";
 import { Link } from "react-router-dom";
-import { Datacontent } from "../../Dataprovider/Dataprovider";
+import { Datacontent } from "../Dataprovider/Dataprovider";
+import { auth } from "../../Utility/firebase";
 function Header() {
-  const [{ Basket }, dispatch] = useContext(Datacontent);
+  const [{ user, Basket }, dispatch] = useContext(Datacontent);
   const totalItem = Basket?.reduce((amount, item) => {
     return item.amount + amount;
   }, 0);
@@ -47,10 +48,21 @@ function Header() {
               <option value="">LU</option>
             </section>
           </a>
-          <Link to="/LOG">
+          <Link to={!user && "/LOG"}>
             <div>
-              <p>Sign In</p>
-              <span>Account & lists</span>
+              <div>
+                {user ? (
+                  <>
+                    <p>hello{user?.email?.split("@")[0]}</p>
+                    <span onClick={() => auth.signOut()}>Sign out</span>
+                  </>
+                ) : (
+                  <>
+                    <p>Sign In</p>
+                    <span>Account & lists</span>
+                  </>
+                )}
+              </div>
             </div>
           </Link>
           <Link to="/Order">

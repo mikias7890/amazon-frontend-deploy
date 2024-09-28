@@ -1,0 +1,52 @@
+.payment {
+  padding: 20px;
+  text-align: center;
+  background-color: rgb(234, 237, 237);
+  font-size: 24px;
+}
+.payment__two {
+  padding: 30px;
+}
+.payment__three {
+  display: flex;
+  gap: 300px;
+  padding: 30px;
+}
+.payment__three h3 {
+  max-width: 300px;
+}
+.payment__three img {
+  width: 80px !important;
+}
+.payment__three div {
+  height: auto !important;
+}
+.payment__card {
+  max-width: 350px;
+  width: 100%;
+}
+.payment__price {
+  padding: 20px;
+}
+.payment__price div {
+  display: flex;
+  font-size: 16px;
+  gap: 10px;
+}
+.payment__price button:hover {
+  background-color: var(--primary-shade);
+}
+.payment__price button {
+  margin-top: 15px;
+  width: 100%;
+  border: none;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+@media screen and(max-width:760px) {
+  .payment__three {
+    flex-direction: column;
+  }
+}

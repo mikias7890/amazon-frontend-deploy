@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Datacontent } from "../../Dataprovider/Dataprovider";
+import { Datacontent } from "../Dataprovider/Dataprovider";
 import Currencyformat from "../Currencyformat/Currencyformat";
 import { Type } from "../../Utility/Action.type";
 import classes from "./Products2.module.css";
-
+import Rating from "@mui/material/Rating";
 function Product({ product, flex, renderDesc, renderAdd }) {
   const { image, id, title, rating, price, description } = product;
   const [state, dispatch] = useContext(Datacontent);
@@ -23,35 +23,6 @@ function Product({ product, flex, renderDesc, renderAdd }) {
     });
   };
 
-  // Function to render star rating
-  const renderStars = (rate) => {
-    const fullStars = Math.floor(rate); // Full stars (★)
-    const halfStar = rate % 1 >= 0.5; // Half star (⯨)
-    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0); // Empty stars (☆)
-
-    return (
-      <>
-        {Array(fullStars)
-          .fill(null)
-          .map((_, index) => (
-            <span key={`full-${index}`} className={classes.star}>
-              ★
-            </span>
-          ))}{" "}
-        {/* Full stars */}
-        {halfStar && <span className={classes.star}>⯨</span>} {/* Half star */}
-        {Array(emptyStars)
-          .fill(null)
-          .map((_, index) => (
-            <span key={`empty-${index}`} className={classes.star}>
-              ☆
-            </span>
-          ))}{" "}
-        {/* Empty stars */}
-      </>
-    );
-  };
-
   return (
     <div
       id={`product-${id}`}
@@ -66,7 +37,10 @@ function Product({ product, flex, renderDesc, renderAdd }) {
         <Currencyformat amount={price} /> {/* Fixed 'price' to 'amount' */}
         {rating && (
           <div className={classes.product__rating}>
-            <span>{renderStars(rating.rate)}</span> {/* Display stars */}
+            <span>
+              <Rating value={5} precision={0.1} />
+            </span>{" "}
+            {/* Display stars */}
             <span>({rating.count} reviews)</span>
           </div>
         )}
