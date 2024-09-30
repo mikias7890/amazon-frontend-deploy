@@ -9,6 +9,7 @@ import Loader from "../../Component/LOad/Loader";
 
 function Productdetails() {
   const { products2Id } = useParams();
+
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
@@ -17,6 +18,7 @@ function Productdetails() {
         .get(`${producturl}/products/${products2Id}`)
         .then((res) => {
           setProduct(res.data);
+          console.log(res.data);
         })
         .catch((err) => {
           console.log(err);
