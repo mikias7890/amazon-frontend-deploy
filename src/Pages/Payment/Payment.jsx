@@ -37,8 +37,8 @@ function Payment() {
         method: "POST",
         url: `/payment/create?total=${total * 100}`, // total in smallest currency unit
       });
-
-      const clientSecret = response.data?.clientsecret;
+      console.log(response.data.clientSecret);
+      const clientSecret = response.data?.clientSecret;
       if (!clientSecret) {
         throw new Error("Client secret not found");
       }
